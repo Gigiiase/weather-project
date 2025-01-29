@@ -17,6 +17,7 @@ const APIKey = '1731699e8320c2f46755d58311490467';
 
 searchBtn.addEventListener('click', () => {
     if(cityInput.value.trim() != '') {
+        updateWeatherInfo(cityInput.value);
         cityInput.value = ''
         cityInput.blur()
     }
@@ -30,6 +31,17 @@ cityInput.addEventListener('keydown', (event) => {
         cityInput.blur()
     }
 })
+
+function getCurrentDate() {
+    const mimdenareDate = new Date() 
+    const options = { 
+        weekDay: 'short',
+        day: '2-digit',
+        month: 'short'
+    }
+    return mimdenareDate.toLocaleDateString('en-GB', options);
+}
+
 
 async function getFetchData(endPoint, city) {
     const APIUrl = `https://api.openweathermap.org/data/2.5/${endPoint}?q=${city}&appid=${APIKey}&units=metric`;
@@ -56,9 +68,22 @@ async function updateWeatherInfo(city) {
         condition.textContent = main;
         humidityValue.textContent = humidity + ' %';
         windSpeedValue.textContent = speed + '  M/s';
-
+        condition.textContent = main;
+        wheatherImg.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+        currentData.textContent = getCurrentDate()
+    
+        
+        await updateForecastsInfo()
     showDisplaySection(weatherInfoSection)
 }
+async function updateForecastsInfo(city) {
+    const forecastData = await getFetchData('forecast', city);
+    const timeTaken = '12:00:00';
+    const todayDate = new Date().toISOString().split('T')[0];
+   
+    
+}
+
 function showDisplaySection(section) {
     [weatherInfoSection, searchSection, notFoudSection]
     .forEach(section => section.style.display = 'none')
