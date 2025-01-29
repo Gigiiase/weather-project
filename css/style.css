@@ -18,8 +18,8 @@ body::before {
     background: rgb(0, 0, 0, 0.15);
 }
 .main_container {
-    width: 300px;
-    height: 500px;
+    width: 350px;
+    height: 490px;
     z-index: 1;
     border-color: white;
     border-radius: 15px;
@@ -73,7 +73,6 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
 }
 
 .location {
@@ -133,4 +132,85 @@ align-items: center;
 }
 .condition_item img {
     width: 30px;
+}
+
+/* third section */
+.forecast_item img {
+    width: 40px;
+    height: 40px;
+}
+.third_sec_conteiner{
+    display: flex; 
+    gap: 15px;
+    margin-top: 20px;
+    overflow-x: scroll;
+    padding-bottom: 12px;
+}
+.third_sec_conteiner::-webkit-scrollbar {
+    height: 10px;
+}
+.third_sec_conteiner::-webkit-scrollbar-track {
+    background-color:rgb(0, 0, 0, 0.1);
+    border-radius: 99px;
+}
+.third_sec_conteiner::-webkit-scrollbar-thumb {
+    background-color:rgb(0, 0, 0, 0.1);
+    border-radius: 99px;
+}
+.forecast_item {
+    min-width: 70px;
+    background-color: rgb(255, 255, 255, 0.15);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+    transition: 0.1s linear background;
+    cursor: pointer;
+}
+.forecast_item:hover {
+   background: rgb(255, 255, 255, 0.15);
+}
+.forecast_item h5 {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;    
+    font-size: 12px;
+}
+
+
+
+
+/* search section */
+.section_message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.section_message img {
+    height: 300px;
+    width: 300px;
+}
+.section_message div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.section_message h3 {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;    
+    font-size: 25px;
+}
+.section_message h4 {
+    font-family: "Poppins", serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    font-size: 15px; 
 }

@@ -28,7 +28,7 @@
             </button>
         </header>
     <!-- firsts sec -->
-        <section class="weatherInfo_section">
+        <section class="weatherInfo_section" style="display: none;">
             <div class="location_div">
                 <div class="location">
                    <img src="images/location_on_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="location_img">
@@ -40,12 +40,13 @@
                 <img src="images/weather hoto.png" alt="" class="main_weather_ph">
                 <div class="temp_info">
                     <h2 class="tempt_text">7 °C</h2>
-                    <h3 class="tempt_text">clouds</h3>
+                    <h3 class="tempt_text condition">clouds</h3>
                 </div>
             </div>
-        </section>
-
-        <section class="main_container2"> 
+       
+   
+        <!-- second sec -->
+     <section class="main_container2"> 
             <article class="weather_info"> 
                 <div class="condition_item">
                     <img src="images/water_drop_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="">
@@ -65,9 +66,66 @@
                 </div>
             </article> 
         </section>
-        
+        <!-- thierd sec -->
+         <section class="third_sec_conteiner">
+            <div class="forecast_item">
+                <h5 class="forecast_item_data">30 jan</h5>
+                <img src="images/rain.webp">
+                <h5 class="forecast_item_temp">12 °C</h5>
+            </div>
+
+            <div class="forecast_item">
+                <h5 class="forecast_item_data">30 jan</h5>
+                <img src="images/rain.webp">
+                <h5 class="forecast_item_temp">12 °C</h5>
+            </div>
+
+            <div class="forecast_item">
+                <h5 class="forecast_item_data">30 jan</h5>
+                <img src="images/rain.webp">
+                <h5 class="forecast_item_temp">12 °C</h5>
+            </div>
+
+            <div class="forecast_item">
+                <h5 class="forecast_item_data">30 jan</h5>
+                <img src="images/rain.webp">
+                <h5 class="forecast_item_temp">12 °C</h5>
+            </div>
+
+            <div class="forecast_item">
+                <h5 class="forecast_item_data">30 jan</h5>
+                <img src="images/rain.webp">
+                <h5 class="forecast_item_temp">12 °C</h5>
+            </div>
+
+            <div class="forecast_item">
+                <h5 class="forecast_item_data">30 jan</h5>
+                <img src="images/rain.webp">
+                <h5 class="forecast_item_temp">12 °C</h5>
+            </div>
+         </section>
+        </section>
 
 
+        <!-- search section -->
+         <section class="search_city section_message">
+            <img src="images/weather-concept-illustration-b.png" alt="">
+            <div>
+                <h3>search city</h3>
+                <h4>Find out the weather conditons of the city</h4>
+            </div>
+         </section>
+
+         <section class="search_error section_message" style="display: none;">
+            <img src="images/404-error-with-tired-person-concept-illustration-b.png" alt="">
+            <div>
+                <h3>Not found city</h3>
+                <h4>Find out the weather conditons of the city</h4>
+            </div>
+         </section>
     </div>
+
+
+    <script src="main.js" defer></script>
 </body>
 </html>
