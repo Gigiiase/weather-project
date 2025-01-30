@@ -166,11 +166,7 @@ align-items: center;
     align-items: center;
     gap: 6px;
     padding: 10px;
-    transition: 0.1s linear background;
     cursor: pointer;
-}
-.forecast_item:hover {
-   background: rgb(255, 255, 255, 0.15);
 }
 .forecast_item h5 {
     font-family: "Poppins", serif;
