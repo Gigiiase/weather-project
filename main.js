@@ -2,7 +2,7 @@ const cityInput = document.querySelector('.city_input');
 const searchBtn = document.querySelector('.search_btn');
 
 const weatherInfoSection = document.querySelector('.weatherInfo_section')
-const notFoudSection = document.querySelector('.search_error');
+const notFoundSection = document.querySelector('.search_error');
 const searchSection = document.querySelector('.search_city');
 
 const countryName = document.querySelector('.country_text');
@@ -16,9 +16,18 @@ const forecastItemContainer = document.querySelector('.third_sec_conteiner');
 
 const APIKey = '1731699e8320c2f46755d58311490467';
 
+// document.addEventListener('DOMContentLoaded', () => {
+//     const lastCity = localStorage.getItem('lastCity');
+//     if (lastCity) {
+//         updateWeatherInfo(lastCity);
+
+//     }
+// });
+
 searchBtn.addEventListener('click', () => {
     if(cityInput.value.trim() != '') {
         updateWeatherInfo(cityInput.value);
+        localStorage.setItem('lastCity', cityInput.value);
         cityInput.value = ''
         cityInput.blur()
     }
@@ -28,6 +37,7 @@ cityInput.addEventListener('keydown', (event) => {
         cityInput.value.trim() != ''
     ) {
         updateWeatherInfo(cityInput.value) 
+        localStorage.setItem('lastCity', cityInput.value);
         cityInput.value = ''
         cityInput.blur()
     }
@@ -53,7 +63,7 @@ async function getFetchData(endPoint, city) {
 async function updateWeatherInfo(city) {
     const weatherData = await getFetchData('weather', city);
     if(weatherData.cod != 200) {
-        showDisplaySection(notFoudSection)
+        showDisplaySection(notFoundSection)
         return
     }
     console.log(weatherData)
@@ -98,9 +108,16 @@ function updateForecastItem(weatherData) {
         main: { temp }
     } = weatherData
 
+    const dateTaken = new Date(date) 
+    const dateOption = {
+        day: '2-digit',
+        month: 'short'
+    } 
+    const dateResult = dateTaken.toLocaleDateString('en-US', dateOption)
+
     const forecastItem = `
         <div class="forecast_item">
-            <h5 class="forecast_item_date">${formattedDate}</h5>
+            <h5 class="forecast_item_date">${dateResult}</h5>
             <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="Weather Icon">
             <h5 class="forecast_item_temp">${Math.round(temp)} °C</h5>
         </div>
@@ -109,8 +126,13 @@ function updateForecastItem(weatherData) {
 }
 
 function showDisplaySection(section) {
-    [weatherInfoSection, searchSection, notFoudSection]
+    [weatherInfoSection, searchSection, notFoundSection]
     .forEach(section => section.style.display = 'none')
 
     section.style.display = 'flex'
 }
+
+
+
+
+
