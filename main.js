@@ -12,6 +12,7 @@ const humidityValue = document.querySelector('.humidity_value');
 const windSpeedValue = document.querySelector('.wind_speed');
 const wheatherImg = document.querySelector('.main_weather_ph');
 const currentData = document.querySelector('.current_day');
+const forecastItemContainer = document.querySelector('.third_sec_conteiner');
 
 const APIKey = '1731699e8320c2f46755d58311490467';
 
@@ -73,7 +74,7 @@ async function updateWeatherInfo(city) {
         currentData.textContent = getCurrentDate()
     
         
-        await updateForecastsInfo()
+        await updateForecastsInfo(city)
     showDisplaySection(weatherInfoSection)
 }
 async function updateForecastsInfo(city) {
@@ -81,7 +82,30 @@ async function updateForecastsInfo(city) {
     const timeTaken = '12:00:00';
     const todayDate = new Date().toISOString().split('T')[0];
    
-    
+    forecastItemContainer.innerHTML = '';
+    forecastData.list.forEach(forecastWeather => { 
+    if(forecastWeather.dt_txt.includes(timeTaken) && 
+    !forecastWeather.dt_txt.includes(todayDate)) {
+    updateForecastItem(forecastWeather);
+    }
+    })
+}
+
+function updateForecastItem(weatherData) {
+    const {
+        dt_txt: date,
+        weather: [{ id, icon }],
+        main: { temp }
+    } = weatherData
+
+    const forecastItem = `
+        <div class="forecast_item">
+            <h5 class="forecast_item_date">${formattedDate}</h5>
+            <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="Weather Icon">
+            <h5 class="forecast_item_temp">${Math.round(temp)} °C</h5>
+        </div>
+    `
+    forecastItemContainer.insertAdjacentHTML('beforeend', forecastItem);
 }
 
 function showDisplaySection(section) {
