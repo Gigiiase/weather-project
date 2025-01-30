@@ -1,31 +1,34 @@
-
+body {
+    background-color: rgba(60, 129, 129, 0.671);
+}
 .cont {
-    background-image: url(/images/Stormclouds.jpg);
-    background-size: cover;
+    /* background-image: url(/images/Stormclouds.jpg); */
+    /* background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
     width: 100%;
     height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.021);
     
 }
-.cont::after {
+/* .cont::after {
     content: "";
     position: absolute;
     width: 100%;
     height: 100dvh;
     backdrop-filter: blur(10px);
-    background: rgba(9, 147, 211, 0.15);
-}
+    background: rgba(28, 46, 54, 0.15);
+} */
 .main_container {
     width: 350px;
     height: 490px;
     z-index: 1;
     border-color: rgb(255, 255, 255);
     border-radius: 15px;
-    background-color: rgba(86, 134, 134, 0.199);
+    background-color: rgba(49, 145, 105, 0.329);
     backdrop-filter: blur(100px);
     padding: 20px;
 }
