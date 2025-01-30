@@ -1,4 +1,5 @@
-body {
+
+.cont {
     background-image: url(/images/Stormclouds.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -9,7 +10,7 @@ body {
     align-items: center;
     justify-content: center;
 }
-body::before {
+.cont::before {
     content: "";
     position: absolute;
     width: 100%;
